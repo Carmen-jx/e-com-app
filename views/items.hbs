@@ -1,0 +1,42 @@
+{{#unless items}}
+
+    <div class="col-md-12">
+      <strong>{{message}}</strong>
+    </div>
+
+{{/unless}}
+
+<h2>Items
+    <a href="/Items/add" class="btn btn-success pull-right">Add Post</a>
+</h2>
+<hr />
+
+    <div class "table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Item ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Post Date</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Published</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td>{{id}}</td>
+                    
+                    <td>{{title}}</td>
+                    <td>{{#formatDate postDate}}{{/formatDate}}</td>
+                    <td><a href="/items?category={{category}}">{{category}}</a></td>
+                    <td>{{published}}</td>
+                    <td><a href="item/delete/{{id}}" class="btn btn-danger">Remove</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>  
+       
+
+
